@@ -12,6 +12,9 @@
 
 <body>
 
+  <!-- Text Pressure Background -->
+  <div id="text-pressure-bg"></div>
+
   <!-- Header -->
   <header>
     <div class="logo">VR</div>
@@ -20,7 +23,7 @@
         <a href="#home" class="active">Home</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
-        <a href="#projects">Portfolio</a>
+        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -34,7 +37,8 @@
         <h1 class="name">Vishal Raj</h1>
         <p class="title"><span class="highlight">Frontend Developer & Creative UI/UX Designer</span></p>
         <p class="description">
-        Passionate about crafting clean, interactive, and user-focused digital experiences. I enjoy designing modern interfaces and building responsive web applications that combine creativity, performance, and functionality.
+          Passionate about crafting clean, interactive, and user-focused digital experiences. I enjoy designing modern
+          interfaces and building responsive web applications that combine creativity, performance, and functionality.
         </p>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/vishalraj46/" target="_blank" class="social-icon">
@@ -55,7 +59,9 @@
       <div class="hero-image">
         <div class="hexagon-container">
           <div class="hexagon-glow"></div>
-          <img src="./images/vishal.jpg" alt="Vishal Raj" class="profile-img">
+          <div class="hexagon-border"></div>
+          <div class="hexagon-bg"></div>
+          <img src="./images/vishal.PNG" alt="Vishal Raj" class="profile-img">
         </div>
       </div>
     </div>
@@ -69,10 +75,12 @@
         <p>
           I'm Vishal Raj, a passionate Computer Science and Engineering student specializing in
           Artificial Intelligence and Machine Learning at KIT - Kalaignarkarunanidhi Institute of Technology.
-          I’m continuously improving my development skills, exploring innovative technologies, and strengthening my problem-solving abilities through coding and real-world projects.
+          I’m continuously improving my development skills, exploring innovative technologies, and strengthening my
+          problem-solving abilities through coding and real-world projects.
         </p>
         <p>
-          I believe great digital experiences come from the perfect balance of creativity, functionality, and strong problem-solving thinking.
+          I believe great digital experiences come from the perfect balance of creativity, functionality, and strong
+          problem-solving thinking.
         </p>
       </div>
 
@@ -102,7 +110,7 @@
   <section id="skills" class="skills">
     <div class="container">
       <h2 class="section-title">My <span class="highlight">Skills</span></h2>
-      
+
       <div class="skills-container">
         <!-- Frontend Development -->
         <div class="skill-category">
@@ -123,10 +131,12 @@
             <div class="skill-card">
               <div class="react-icon">
                 <svg viewBox="0 0 24 24" fill="#61DAFB" width="45" height="45">
-                  <circle cx="12" cy="12" r="2"/>
-                  <ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1"/>
-                  <ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1" transform="rotate(60 12 12)"/>
-                  <ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1" transform="rotate(120 12 12)"/>
+                  <circle cx="12" cy="12" r="2" />
+                  <ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1" />
+                  <ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1"
+                    transform="rotate(60 12 12)" />
+                  <ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1"
+                    transform="rotate(120 12 12)" />
                 </svg>
               </div>
               <p>React</p>
@@ -164,7 +174,8 @@
             <div class="skill-card">
               <div class="mongodb-icon">
                 <svg viewBox="0 0 24 24" fill="#47A248" width="45" height="45">
-                  <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296 4.604-3.254 4.292-11.375z"/>
+                  <path
+                    d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296 4.604-3.254 4.292-11.375z" />
                 </svg>
               </div>
               <p>MongoDB</p>
@@ -184,46 +195,78 @@
   <section id="projects" class="projects">
     <div class="container">
       <h2 class="section-title">Latest <span class="highlight">Projects</span></h2>
-      <div class="projects-grid">
-        
-       
-
-        <div class="project-card">
-          <div class="project-header">
-            <span class="project-tag">IoT</span>
-            
-          </div>
-          <h3>Fire Detection System</h3>
-          <p>Real-time fire detection using image processing and alert notifications with IoT integration.</p>
+      <div class="orbit-wrapper">
+        <!-- Center hub -->
+        <div class="orbit-center">
+          <i class="bi bi-code-slash"></i>
+          <span>Projects</span>
         </div>
+        <!-- Decorative dashed ring -->
+        <div class="orbit-ring"></div>
+        <!-- Rotating track — all cards orbit together -->
+        <div class="orbit-track">
 
-        <div class="project-card">
-          <div class="project-header">
-            <span class="project-tag">Full Stack</span>
-            
+          <div class="orbit-item">
+            <div class="project-card">
+              <div class="card-front">
+                <span class="project-tag">IoT</span>
+                <h3>Fire Detection System</h3>
+                <i class="bi bi-fire card-icon"></i>
+              </div>
+              <div class="card-overlay">
+                <span class="project-tag">IoT</span>
+                <h3>Fire Detection System</h3>
+                <p>Real-time fire detection using image processing and alert notifications with IoT integration.</p>
+              </div>
+            </div>
           </div>
-          <h3>Game Zone E-commerce</h3>
-          <p>Complete e-commerce platform for video games with user authentication, shopping cart, and payment integration.</p>
-        </div>
 
-         <div class="project-card">
-          <div class="project-header">
-            <span class="project-tag">Deep Learning</span>
-            
+          <div class="orbit-item">
+            <div class="project-card">
+              <div class="card-front">
+                <span class="project-tag">Full Stack</span>
+                <h3>Game Zone E-commerce</h3>
+                <i class="bi bi-controller card-icon"></i>
+              </div>
+              <div class="card-overlay">
+                <span class="project-tag">Full Stack</span>
+                <h3>Game Zone E-commerce</h3>
+                <p>Complete e-commerce platform for video games with user authentication, shopping cart, and payment integration.</p>
+              </div>
+            </div>
           </div>
-          <h3>Lung Disease Prediction</h3>
-          <p>Hybrid CNN + RNN model to detect lung diseases from X-ray images using advanced deep learning techniques.</p>
-        </div>
 
-        <div class="project-card">
-          <div class="project-header">
-            <span class="project-tag">AI Powered</span>
+          <div class="orbit-item">
+            <div class="project-card">
+              <div class="card-front">
+                <span class="project-tag">Deep Learning</span>
+                <h3>Lung Disease Prediction</h3>
+                <i class="bi bi-heart-pulse card-icon"></i>
+              </div>
+              <div class="card-overlay">
+                <span class="project-tag">Deep Learning</span>
+                <h3>Lung Disease Prediction</h3>
+                <p>Hybrid CNN + RNN model to detect lung diseases from X-ray images using advanced deep learning techniques.</p>
+              </div>
+            </div>
           </div>
-          <h3>StockBot AI Advisor</h3>
-          <p>Intelligent stock market analysis platform that provides AI-powered insights, market trend analysis, portfolio tracking, and smart investment recommendations through an interactive dashboard.</p>
-        </div>
-        
 
+          <div class="orbit-item">
+            <div class="project-card">
+              <div class="card-front">
+                <span class="project-tag">AI Powered</span>
+                <h3>StockBot AI Advisor</h3>
+                <i class="bi bi-graph-up-arrow card-icon"></i>
+              </div>
+              <div class="card-overlay">
+                <span class="project-tag">AI Powered</span>
+                <h3>StockBot AI Advisor</h3>
+                <p>AI-powered stock market analysis with insights, trend analysis, portfolio tracking and smart recommendations.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -233,7 +276,7 @@
     <div class="container">
       <h2 class="section-title">Competitive <span class="highlight">Programming</span></h2>
       <div class="competitive-grid">
-        
+
         <div class="competitive-card">
           <div class="platform-icon">
             <i class="bi bi-code-square"></i>
@@ -307,98 +350,8 @@
     <p>&copy; 2025 Vishal Raj. All Rights Reserved.</p>
   </footer>
 
-  <script>
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Active navigation
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav a');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 200)) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-          link.classList.add('active');
-        }
-      });
-    });
-
-    // Scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.skill-card, .project-card, .competitive-card').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Animated Counter for Stats
-    const statNumbers = document.querySelectorAll('.stat-number');
-    let hasAnimated = false;
-
-    const animateCounter = (element) => {
-      const target = parseInt(element.getAttribute('data-target'));
-      const duration = 2000; // 2 seconds
-      const increment = target / (duration / 16); // 60fps
-      let current = 0;
-
-      const updateCounter = () => {
-        current += increment;
-        if (current < target) {
-          element.textContent = Math.floor(current);
-          requestAnimationFrame(updateCounter);
-        } else {
-          element.textContent = target;
-        }
-      };
-
-      updateCounter();
-    };
-
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !hasAnimated) {
-          hasAnimated = true;
-          statNumbers.forEach(stat => animateCounter(stat));
-        }
-      });
-    }, { threshold: 0.5 });
-
-    const statsSection = document.querySelector('.stats-grid');
-    if (statsSection) {
-      statsObserver.observe(statsSection);
-    }
-  </script>
+  <script src="./text-pressure.js"></script>
+  <script src="./main.js"></script>
 
 </body>
 

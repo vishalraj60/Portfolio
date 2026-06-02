@@ -23,6 +23,36 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Text Pressure Background */
+#text-pressure-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#text-pressure-bg .text-pressure-title {
+  font-size: 120px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+/* Ensure all content is above background */
+header,
+section,
+footer {
+  position: relative;
+  z-index: 1;
 }
 
 .container {
@@ -125,7 +155,7 @@ nav a.active::after {
   right: 0;
   bottom: 0;
   background: radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 80% 50%, rgba(0, 153, 204, 0.08) 0%, transparent 50%);
+    radial-gradient(circle at 80% 50%, rgba(0, 153, 204, 0.08) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -235,44 +265,75 @@ nav a.active::after {
 
 .hexagon-container {
   position: relative;
-  width: 400px;
-  height: 460px;
+  width: 390px;
+  height: 390px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.hexagon-glow {
+/* Hexagon background fill */
+.hexagon-bg {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  background: linear-gradient(160deg, rgba(0, 200, 240, 0.35) 0%, rgba(0, 120, 180, 0.45) 100%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  z-index: 1;
+}
+
+/* Hexagon border ring */
+.hexagon-border {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: linear-gradient(135deg, var(--primary-color), transparent 60%, var(--primary-color));
+  z-index: 0;
+}
+
+/* Glowing aura */
+.hexagon-glow {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: calc(100% + 30px);
+  height: calc(100% + 30px);
   background: var(--primary-color);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  filter: blur(30px);
-  opacity: 0.6;
+  filter: blur(25px);
+  opacity: 0.4;
   animation: pulse 3s ease-in-out infinite;
+  z-index: 0;
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
+    opacity: 0.4;
     transform: scale(1);
-    opacity: 0.6;
   }
+
   50% {
-    transform: scale(1.05);
-    opacity: 0.8;
+    opacity: 0.6;
+    transform: scale(1.06);
   }
 }
 
 .profile-img {
   position: relative;
-  width: 380px;
-  height: 440px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: top center;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  border: 3px solid var(--primary-color);
-  box-shadow: 0 0 40px rgba(0, 217, 255, 0.5);
   z-index: 2;
+  filter: drop-shadow(0 0 15px rgba(0, 217, 255, 0.5));
 }
 
 /* Section Styles */
@@ -461,96 +522,222 @@ section {
 /* Projects Section */
 .projects {
   background: var(--dark-bg);
+  padding: 100px 0 120px;
+  overflow: hidden;
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
+/* ── Orbit Layout ── */
+.orbit-wrapper {
+  position: relative;
+  width: 720px;
+  height: 720px;
   margin: 0 auto;
 }
 
-.project-card {
-  background: var(--card-bg);
-  padding: 30px;
-  border-radius: 15px;
-  border: 1px solid rgba(0, 217, 255, 0.1);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(30px);
+/* Center hub */
+.orbit-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.2) 0%, rgba(0, 217, 255, 0.05) 70%);
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  z-index: 20;
+  box-shadow: 0 0 30px rgba(0, 217, 255, 0.4), inset 0 0 20px rgba(0, 217, 255, 0.1);
 }
 
-.project-card.animate {
-  opacity: 1;
-  transform: translateY(0);
+.orbit-center i {
+  font-size: 1.8rem;
+  color: var(--primary-color);
 }
+
+.orbit-center span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Decorative dashed ring */
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  height: 520px;
+  border: 1.5px dashed rgba(0, 217, 255, 0.2);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+  animation: ring-pulse 4s ease-in-out infinite;
+}
+
+@keyframes ring-pulse {
+  0%, 100% { border-color: rgba(0, 217, 255, 0.2); }
+  50%       { border-color: rgba(0, 217, 255, 0.45); }
+}
+
+/* ── Rotating track: spins the whole group ── */
+.orbit-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: track-spin 18s linear infinite;
+  z-index: 5;
+}
+
+@keyframes track-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Track hover pause handled by JavaScript (orbit-card-hover) */
+
+/* ── Orbit items: fixed positions, orbit via parent track ── */
+.orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+}
+
+/* 4 cards evenly at 0° / 90° / 180° / 270° */
+.orbit-track .orbit-item:nth-child(1) { transform: rotate(0deg)   translateX(260px); }
+.orbit-track .orbit-item:nth-child(2) { transform: rotate(90deg)  translateX(260px); }
+.orbit-track .orbit-item:nth-child(3) { transform: rotate(180deg) translateX(260px); }
+.orbit-track .orbit-item:nth-child(4) { transform: rotate(270deg) translateX(260px); }
+
+/* ── Project card: counter-rotates to stay upright ── */
+.project-card {
+  width: 100%;
+  height: 100%;
+  background: var(--card-bg);
+  border: 1px solid rgba(0, 217, 255, 0.15);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/*
+  Each card must cancel its OWN positional rotation + the track rotation.
+  orbit-item:nth-child(N) is placed at angle (N-1)*90deg,
+  so the card must start counter-rotated by that same amount.
+
+  Card 1 (0deg offset):   from  0deg  → -360deg
+  Card 2 (90deg offset):  from -90deg → -450deg
+  Card 3 (180deg offset): from -180deg → -540deg
+  Card 4 (270deg offset): from -270deg → -630deg
+*/
+.orbit-track .orbit-item:nth-child(1) .project-card { animation: card-upright-0   18s linear infinite; }
+.orbit-track .orbit-item:nth-child(2) .project-card { animation: card-upright-90  18s linear infinite; }
+.orbit-track .orbit-item:nth-child(3) .project-card { animation: card-upright-180 18s linear infinite; }
+.orbit-track .orbit-item:nth-child(4) .project-card { animation: card-upright-270 18s linear infinite; }
+
+@keyframes card-upright-0   { from { transform: rotate(0deg);    } to { transform: rotate(-360deg); } }
+@keyframes card-upright-90  { from { transform: rotate(-90deg);  } to { transform: rotate(-450deg); } }
+@keyframes card-upright-180 { from { transform: rotate(-180deg); } to { transform: rotate(-540deg); } }
+@keyframes card-upright-270 { from { transform: rotate(-270deg); } to { transform: rotate(-630deg); } }
+
+/* Hover pause handled by JavaScript (orbit-card-hover) */
 
 .project-card:hover {
-  transform: translateY(-10px);
   border-color: var(--primary-color);
-  box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+  box-shadow: 0 0 28px rgba(0, 217, 255, 0.35);
+  z-index: 30;
+}
+
+/* ── Card front (default view) ── */
+.card-front {
+  position: absolute;
+  inset: 0;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.card-front h3 {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.card-icon {
+  font-size: 2.6rem;
+  color: var(--primary-color);
+  opacity: 0.25;
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+/* ── Card overlay (hover detail view) ── */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, rgba(0, 12, 30, 0.97) 0%, rgba(0, 50, 72, 0.97) 100%);
+  backdrop-filter: blur(10px);
+  border-radius: inherit;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-card:hover .card-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.card-overlay h3 {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.card-overlay p {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
 }
 
 .project-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .project-tag {
-  background: rgba(0, 217, 255, 0.1);
+  background: rgba(0, 217, 255, 0.12);
   color: var(--primary-color);
-  padding: 6px 15px;
+  padding: 4px 12px;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 600;
-}
-
-.project-status {
-  padding: 6px 15px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.project-status.ongoing {
-  background: rgba(255, 193, 7, 0.1);
-  color: #ffc107;
-}
-
-.project-status.completed {
-  background: rgba(76, 175, 80, 0.1);
-  color: #4caf50;
-}
-
-.project-card h3 {
-  font-size: 1.5rem;
-  color: var(--text-primary);
-  margin-bottom: 15px;
-}
-
-.project-card p {
-  color: var(--text-secondary);
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.project-tech {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.project-tech span {
-  background: rgba(0, 217, 255, 0.05);
-  color: var(--text-muted);
-  padding: 5px 12px;
-  border-radius: 15px;
-  font-size: 0.85rem;
-  border: 1px solid rgba(0, 217, 255, 0.1);
+  display: inline-block;
 }
 
 /* Competitive Programming Section */
@@ -716,13 +903,23 @@ footer p {
   }
 
   .hexagon-container {
-    width: 350px;
-    height: 410px;
+    width: 370px;
+    height: 450px;
+  }
+
+  .hexagon-bg {
+    width: 230px;
+    height: 195px;
+  }
+
+  .hexagon-glow {
+    width: 250px;
+    height: 215px;
   }
 
   .profile-img {
     width: 330px;
-    height: 390px;
+    height: 410px;
   }
 }
 
@@ -778,13 +975,23 @@ footer p {
   }
 
   .hexagon-container {
-    width: 300px;
-    height: 360px;
+    width: 320px;
+    height: 400px;
+  }
+
+  .hexagon-bg {
+    width: 200px;
+    height: 170px;
+  }
+
+  .hexagon-glow {
+    width: 220px;
+    height: 190px;
   }
 
   .profile-img {
-    width: 280px;
-    height: 340px;
+    width: 290px;
+    height: 370px;
   }
 
   .section-title {
@@ -796,7 +1003,27 @@ footer p {
     gap: 20px;
   }
 
-  .projects-grid,
+  .orbit-wrapper {
+    width: 500px;
+    height: 500px;
+  }
+
+  .orbit-ring {
+    width: 380px;
+    height: 380px;
+  }
+
+  .orbit-item {
+    width: 160px;
+    height: 160px;
+    margin: -80px 0 0 -80px;
+  }
+
+  .orbit-track .orbit-item:nth-child(1) { transform: rotate(0deg)   translateX(190px); }
+  .orbit-track .orbit-item:nth-child(2) { transform: rotate(90deg)  translateX(190px); }
+  .orbit-track .orbit-item:nth-child(3) { transform: rotate(180deg) translateX(190px); }
+  .orbit-track .orbit-item:nth-child(4) { transform: rotate(270deg) translateX(190px); }
+
   .competitive-grid {
     grid-template-columns: 1fr;
   }
@@ -839,13 +1066,23 @@ footer p {
   }
 
   .hexagon-container {
-    width: 250px;
-    height: 310px;
+    width: 270px;
+    height: 340px;
+  }
+
+  .hexagon-bg {
+    width: 160px;
+    height: 138px;
+  }
+
+  .hexagon-glow {
+    width: 180px;
+    height: 158px;
   }
 
   .profile-img {
-    width: 230px;
-    height: 290px;
+    width: 240px;
+    height: 310px;
   }
 
   .section-title {
@@ -854,5 +1091,47 @@ footer p {
 
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .orbit-wrapper {
+    width: 340px;
+    height: 340px;
+  }
+
+  .orbit-ring {
+    width: 280px;
+    height: 280px;
+  }
+
+  .orbit-center {
+    width: 80px;
+    height: 80px;
+  }
+
+  .orbit-center i {
+    font-size: 1.4rem;
+  }
+
+  .orbit-item {
+    width: 130px;
+    height: 130px;
+    margin: -65px 0 0 -65px;
+  }
+
+  .orbit-track .orbit-item:nth-child(1) { transform: rotate(0deg)   translateX(140px); }
+  .orbit-track .orbit-item:nth-child(2) { transform: rotate(90deg)  translateX(140px); }
+  .orbit-track .orbit-item:nth-child(3) { transform: rotate(180deg) translateX(140px); }
+  .orbit-track .orbit-item:nth-child(4) { transform: rotate(270deg) translateX(140px); }
+
+  .project-card {
+    padding: 14px 12px;
+  }
+
+  .project-card h3 {
+    font-size: 0.85rem;
+  }
+
+  .project-card p {
+    font-size: 0.75rem;
   }
 }
