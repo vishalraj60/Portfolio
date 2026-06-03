@@ -4,7 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vishal Raj - Portfolio</title>
+  <title>Vishal Raj — Portfolio</title>
+  <meta name="description"
+    content="Vishal Raj — Frontend Developer & AI/ML Student. Crafting modern, interactive web experiences with React, JavaScript, and creative UI/UX design.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -12,70 +19,177 @@
 
 <body>
 
-  <!-- Text Pressure Background -->
-  <div id="text-pressure-bg"></div>
+  <!-- Particle Canvas -->
+  <canvas id="particles-canvas"></canvas>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">VR</div>
-    <div class="nav-container">
-      <nav>
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <!-- Grid Background -->
+  <div class="grid-bg"></div>
+
+  <!-- Cursor Glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ==================== HEADER ==================== -->
+  <header id="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-text">VR</span>
+      </div>
+
+      <div class="nav-container">
+        <nav id="mainNav">
+          <span class="nav-glow-indicator" id="navIndicator"></span>
+          <a href="#home" class="nav-link active" id="nav-home">Home</a>
+          <a href="#about" class="nav-link" id="nav-about">About</a>
+          <a href="#skills" class="nav-link" id="nav-skills">Skills</a>
+          <a href="#projects" class="nav-link" id="nav-projects">Projects</a>
+          <a href="#contact" class="nav-link" id="nav-contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="header-actions">
+        <a href="./images/vishal.PNG" download class="btn-nav-cv" id="btn-header-cv">
+          <i class="bi bi-download"></i>
+          <span>Download CV</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- ==================== HERO ==================== -->
   <section id="home" class="hero">
+
+    <!-- Ambient radial blobs -->
+    <div class="hero-blob blob-1"></div>
+    <div class="hero-blob blob-2"></div>
+    <div class="hero-blob blob-3"></div>
+
     <div class="hero-container">
-      <div class="hero-text">
-        <p class="greeting">Hello, It's Me</p>
-        <h1 class="name">Vishal Raj</h1>
-        <p class="title"><span class="highlight">Frontend Developer & Creative UI/UX Designer</span></p>
-        <p class="description">
-          Passionate about crafting clean, interactive, and user-focused digital experiences. I enjoy designing modern
-          interfaces and building responsive web applications that combine creativity, performance, and functionality.
+
+      <!-- Left: Text -->
+      <div class="hero-text scroll-reveal">
+        <p class="greeting">
+          <span class="greeting-dot"></span>
+          Hello, It's Me
         </p>
+
+        <h1 class="name">Vishal Raj</h1>
+
+        <p class="title">
+          <span class="gradient-text typewriter-text" id="typewriterText"></span><span class="title-cursor">|</span>
+        </p>
+
+        <p class="description">
+          Passionate about crafting clean, interactive, and user-focused digital experiences.
+          I enjoy designing modern interfaces and building responsive web applications that
+          combine creativity, performance, and functionality.
+        </p>
+
+        <!-- Social Icons -->
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/vishalraj46/" target="_blank" class="social-icon">
+          <a href="https://www.linkedin.com/in/vishalraj46/" target="_blank" class="social-icon" title="LinkedIn">
             <i class="bi bi-linkedin"></i>
+            <span class="social-label">LinkedIn</span>
           </a>
-          <a href="https://github.com/vishalraj60" target="_blank" class="social-icon">
+          <a href="https://github.com/vishalraj60" target="_blank" class="social-icon" title="GitHub">
             <i class="bi bi-github"></i>
+            <span class="social-label">GitHub</span>
           </a>
-          <a href="mailto:kit27.am60@gmail.com" class="social-icon">
+          <a href="mailto:kit27.am60@gmail.com" class="social-icon" title="Email">
             <i class="bi bi-envelope"></i>
+            <span class="social-label">Email</span>
           </a>
-          <a href="https://leetcode.com/u/Vishalraj_60/" target="_blank" class="social-icon">
-            <i class="bi bi-code-slash"></i>
+
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hero-buttons">
+          <a href="./images/vishal.PNG" download class="btn-primary" id="btn-download-cv">
+            <i class="bi bi-download"></i>
+            Download CV
+          </a>
+          <a href="#projects" class="btn-secondary" id="btn-view-projects">
+            View Projects
+            <i class="bi bi-arrow-right"></i>
           </a>
         </div>
-        <a href="#contact" class="btn-download">Download CV</a>
       </div>
-      <div class="hero-image">
-        <div class="hexagon-container">
-          <div class="hexagon-glow"></div>
-          <div class="hexagon-border"></div>
-          <div class="hexagon-bg"></div>
-          <img src="./images/vishal.PNG" alt="Vishal Raj" class="profile-img">
+
+
+      <!-- Hexagon Frame -->
+      <div class="hexagon-container" id="hexagonContainer">
+        <!-- Orbit rings -->
+        <div class="orbit-ring-1"></div>
+        <div class="orbit-ring-2"></div>
+        <!-- Glow layers -->
+        <div class="hexagon-glow"></div>
+        <div class="hexagon-border-outer"></div>
+        <div class="hexagon-border-inner"></div>
+        <div class="hexagon-bg"></div>
+        <!-- Profile image -->
+        <img src="./images/vishal.PNG" alt="Vishal Raj — Frontend Developer" class="profile-img">
+      </div>
+    </div>
+
+    </div>
+
+    <!-- Info Cards Row -->
+    <div class="info-cards-row">
+      <div class="info-card scroll-reveal">
+        <div class="info-card-icon" style="color: #00d4ff;">
+          <i class="bi bi-rocket-takeoff"></i>
+        </div>
+        <div class="info-card-content">
+          <h3>3+</h3>
+          <p class="info-card-title">Projects Completed</p>
+          <p class="info-card-sub">Built modern responsive web apps.</p>
+        </div>
+      </div>
+      <div class="info-card scroll-reveal" style="--delay: 0.1s">
+        <div class="info-card-icon" style="color: #8b5cf6;">
+          <i class="bi bi-code-square"></i>
+        </div>
+        <div class="info-card-content">
+          <h3>Frontend</h3>
+          <p class="info-card-title info-card-purple">Developer</p>
+          <p class="info-card-sub">HTML, CSS, JavaScript, React &amp; more.</p>
+        </div>
+      </div>
+      <div class="info-card scroll-reveal" style="--delay: 0.2s">
+        <div class="info-card-icon" style="color: #10b981;">
+          <i class="bi bi-mortarboard"></i>
+        </div>
+        <div class="info-card-content">
+          <h3>AI &amp; ML</h3>
+          <p class="info-card-title info-card-green">Student</p>
+          <p class="info-card-sub">Exploring the world of Artificial Intelligence.</p>
+        </div>
+      </div>
+      <div class="info-card scroll-reveal" style="--delay: 0.3s">
+        <div class="info-card-icon" style="color: #f59e0b;">
+          <i class="bi bi-trophy"></i>
+        </div>
+        <div class="info-card-content">
+          <h3>30 Day</h3>
+          <p class="info-card-title info-card-amber">ML Internship</p>
+          <p class="info-card-sub">Successfully completed a 30-day ML internship.</p>
         </div>
       </div>
     </div>
+
   </section>
 
-  <!-- About Section -->
+  <!-- ==================== ABOUT ==================== -->
   <section id="about" class="about">
     <div class="container">
-      <h2 class="section-title">About <span class="highlight">Me</span></h2>
-      <div class="about-content">
+      <h2 class="section-title scroll-reveal">About <span class="highlight">Me</span></h2>
+      <div class="about-content scroll-reveal">
         <p>
           I'm Vishal Raj, a passionate Computer Science and Engineering student specializing in
           Artificial Intelligence and Machine Learning at KIT - Kalaignarkarunanidhi Institute of Technology.
-          I’m continuously improving my development skills, exploring innovative technologies, and strengthening my
+          I'm continuously improving my development skills, exploring innovative technologies, and strengthening my
           problem-solving abilities through coding and real-world projects.
         </p>
         <p>
@@ -86,19 +200,19 @@
 
       <!-- Stats Section -->
       <div class="stats-grid">
-        <div class="stat-card">
+        <div class="stat-card scroll-reveal">
           <h3 class="stat-number" data-target="1000">0</h3>
           <p class="stat-label">Problems Solved</p>
         </div>
-        <div class="stat-card">
+        <div class="stat-card scroll-reveal" style="--delay: 0.1s">
           <h3 class="stat-number" data-target="300">0</h3>
           <p class="stat-label">Active Days</p>
         </div>
-        <div class="stat-card">
+        <div class="stat-card scroll-reveal" style="--delay: 0.2s">
           <h3 class="stat-number" data-target="5">0</h3>
           <p class="stat-label">Projects</p>
         </div>
-        <div class="stat-card">
+        <div class="stat-card scroll-reveal" style="--delay: 0.3s">
           <h3 class="stat-number" data-target="2">0</h3>
           <p class="stat-label">Internships</p>
         </div>
@@ -106,31 +220,39 @@
     </div>
   </section>
 
-  <!-- Skills Section -->
+  <!-- ==================== SKILLS ==================== -->
   <section id="skills" class="skills">
     <div class="container">
-      <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+      <h2 class="section-title scroll-reveal">My <span class="highlight">Skills</span></h2>
 
       <div class="skills-container">
         <!-- Frontend Development -->
-        <div class="skill-category">
-          <h3 class="category-title">Frontend Development</h3>
+        <div class="skill-category scroll-reveal">
+          <h3 class="category-title">
+            <i class="bi bi-layers"></i> Frontend Development
+          </h3>
           <div class="skills-grid">
             <div class="skill-card">
-              <img src="./images/html5.svg" alt="HTML5">
+              <div class="skill-icon">
+                <img src="./images/html5.svg" alt="HTML5">
+              </div>
               <p>HTML5</p>
             </div>
             <div class="skill-card">
-              <img src="./images/css3.svg" alt="CSS3">
+              <div class="skill-icon">
+                <img src="./images/css3.svg" alt="CSS3">
+              </div>
               <p>CSS3</p>
             </div>
             <div class="skill-card">
-              <img src="./images/javascript.svg" alt="JavaScript">
+              <div class="skill-icon">
+                <img src="./images/javascript.svg" alt="JavaScript">
+              </div>
               <p>JavaScript</p>
             </div>
             <div class="skill-card">
-              <div class="react-icon">
-                <svg viewBox="0 0 24 24" fill="#61DAFB" width="45" height="45">
+              <div class="skill-icon react-icon">
+                <svg viewBox="0 0 24 24" fill="#61DAFB" width="40" height="40">
                   <circle cx="12" cy="12" r="2" />
                   <ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1" />
                   <ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1"
@@ -145,35 +267,47 @@
         </div>
 
         <!-- Programming Languages -->
-        <div class="skill-category">
-          <h3 class="category-title">Programming Languages</h3>
+        <div class="skill-category scroll-reveal" style="--delay: 0.1s">
+          <h3 class="category-title">
+            <i class="bi bi-terminal"></i> Programming Languages
+          </h3>
           <div class="skills-grid">
             <div class="skill-card">
-              <img src="./images/py.PNG" alt="Python">
+              <div class="skill-icon">
+                <img src="./images/py.PNG" alt="Python">
+              </div>
               <p>Python</p>
             </div>
             <div class="skill-card">
-              <img src="./images/c.PNG" alt="C Programming">
+              <div class="skill-icon">
+                <img src="./images/c.PNG" alt="C Programming">
+              </div>
               <p>C</p>
             </div>
             <div class="skill-card">
-              <img src="./images/java.PNG" alt="Java">
+              <div class="skill-icon">
+                <img src="./images/java.PNG" alt="Java">
+              </div>
               <p>Java</p>
             </div>
           </div>
         </div>
 
         <!-- Database & Tools -->
-        <div class="skill-category">
-          <h3 class="category-title">Database & Tools</h3>
+        <div class="skill-category scroll-reveal" style="--delay: 0.2s">
+          <h3 class="category-title">
+            <i class="bi bi-database"></i> Database &amp; Tools
+          </h3>
           <div class="skills-grid">
             <div class="skill-card">
-              <img src="./images/sql.PNG" alt="SQL">
+              <div class="skill-icon">
+                <img src="./images/sql.PNG" alt="SQL">
+              </div>
               <p>SQL</p>
             </div>
             <div class="skill-card">
-              <div class="mongodb-icon">
-                <svg viewBox="0 0 24 24" fill="#47A248" width="45" height="45">
+              <div class="skill-icon mongodb-icon">
+                <svg viewBox="0 0 24 24" fill="#47A248" width="40" height="40">
                   <path
                     d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296 4.604-3.254 4.292-11.375z" />
                 </svg>
@@ -181,7 +315,9 @@
               <p>MongoDB</p>
             </div>
             <div class="skill-card">
-              <img src="./images/git.svg" alt="Git">
+              <div class="skill-icon">
+                <img src="./images/git.svg" alt="Git">
+              </div>
               <p>Git</p>
             </div>
           </div>
@@ -191,10 +327,10 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
+  <!-- ==================== PROJECTS ==================== -->
   <section id="projects" class="projects">
     <div class="container">
-      <h2 class="section-title">Latest <span class="highlight">Projects</span></h2>
+      <h2 class="section-title scroll-reveal">Latest <span class="highlight">Projects</span></h2>
       <div class="orbit-wrapper">
         <!-- Center hub -->
         <div class="orbit-center">
@@ -203,7 +339,7 @@
         </div>
         <!-- Decorative dashed ring -->
         <div class="orbit-ring"></div>
-        <!-- Rotating track — all cards orbit together -->
+        <!-- Rotating track -->
         <div class="orbit-track">
 
           <div class="orbit-item">
@@ -231,7 +367,8 @@
               <div class="card-overlay">
                 <span class="project-tag">Full Stack</span>
                 <h3>Game Zone E-commerce</h3>
-                <p>Complete e-commerce platform for video games with user authentication, shopping cart, and payment integration.</p>
+                <p>Complete e-commerce platform for video games with user authentication, shopping cart, and payment
+                  integration.</p>
               </div>
             </div>
           </div>
@@ -246,7 +383,8 @@
               <div class="card-overlay">
                 <span class="project-tag">Deep Learning</span>
                 <h3>Lung Disease Prediction</h3>
-                <p>Hybrid CNN + RNN model to detect lung diseases from X-ray images using advanced deep learning techniques.</p>
+                <p>Hybrid CNN + RNN model to detect lung diseases from X-ray images using advanced deep learning
+                  techniques.</p>
               </div>
             </div>
           </div>
@@ -261,7 +399,8 @@
               <div class="card-overlay">
                 <span class="project-tag">AI Powered</span>
                 <h3>StockBot AI Advisor</h3>
-                <p>AI-powered stock market analysis with insights, trend analysis, portfolio tracking and smart recommendations.</p>
+                <p>AI-powered stock market analysis with insights, trend analysis, portfolio tracking and smart
+                  recommendations.</p>
               </div>
             </div>
           </div>
@@ -271,86 +410,204 @@
     </div>
   </section>
 
-  <!-- Competitive Programming Section -->
+  <!-- ==================== CODING PROFILES ==================== -->
   <section id="competitive" class="competitive">
     <div class="container">
-      <h2 class="section-title">Competitive <span class="highlight">Programming</span></h2>
-      <div class="competitive-grid">
+      <h2 class="section-title scroll-reveal">Coding <span class="highlight">Profiles</span></h2>
+      <p class="section-subtitle scroll-reveal">Hover over a card to preview my profile</p>
 
-        <div class="competitive-card">
-          <div class="platform-icon">
-            <i class="bi bi-code-square"></i>
+      <div class="cp-grid">
+
+        <!-- LeetCode -->
+        <div class="cp-card scroll-reveal" style="--card-accent: #f89f1b; --card-accent-rgb: 248,159,27;">
+          <div class="cp-card-bg" style="background-image: url('./images/leetcode_profile.png')"></div>
+          <div class="cp-card-overlay"></div>
+          <div class="cp-card-shine"></div>
+          <div class="cp-card-inner">
+            <div class="cp-default">
+              <div class="cp-logo-wrap">
+                <svg viewBox="0 0 95 111" fill="none" xmlns="http://www.w3.org/2000/svg" class="cp-logo-svg" width="48" height="48">
+                  <path d="M68.0063 83.0664C70.5 80.5764 74.5 80.5764 77 83.0664L88.5 94.5664C91 97.0564 91 101.056 88.5 103.566L79 113.066C76.5 115.556 72.5 115.556 70 113.066L58.5 101.566C56 99.066 56 95.066 58.5 92.566L68.0063 83.0664Z" fill="#FFA116"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 83.0664L43 51.5664L52 60.5664L20.5 92.0664L11.5 83.0664ZM52 60.5664L83.5 29.0664L74.5 20.0664L43 51.5664L52 60.5664Z" fill="#B3B3B3"/>
+                  <rect x="21" y="0" width="51" height="10" rx="5" fill="#070706"/>
+                  <rect x="21" y="10" width="51" height="12" rx="0" fill="#1A1A1A"/>
+                  <path d="M62 38C60.5 36.5 58.5 36.5 57 38L20 75C18.5 76.5 18.5 78.5 20 80L29 89C30.5 90.5 32.5 90.5 34 89L74 49C75.5 47.5 75.5 45.5 74 44L62 38Z" fill="#FFA116"/>
+                </svg>
+              </div>
+              <h3 class="cp-name">LeetCode</h3>
+              <div class="cp-stats">
+                <span class="cp-stat-badge"><i class="bi bi-check2-circle"></i> 300+ Solved</span>
+                <span class="cp-stat-badge cp-badge-alt"><i class="bi bi-bar-chart"></i> 68% Acceptance</span>
+              </div>
+              <a href="https://leetcode.com/u/Vishalraj_60/" target="_blank" class="cp-btn">
+                <span>View Profile</span><i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+            <div class="cp-hover-content">
+              <div class="cp-hover-badge"><i class="bi bi-eye"></i> Live Preview</div>
+              <h3>LeetCode</h3>
+              <p>@Vishalraj_60</p>
+              <a href="https://leetcode.com/u/Vishalraj_60/" target="_blank" class="cp-btn cp-btn-hover">
+                <span>Open Profile</span><i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
           </div>
-          <h3>LeetCode</h3>
-          <p class="problems-count">300+ Problems</p>
-          <a href="https://leetcode.com/u/Vishalraj_60/" target="_blank" class="platform-link">
-            View Profile <i class="bi bi-arrow-right"></i>
-          </a>
+          <div class="cp-corner-glow"></div>
         </div>
 
-        <div class="competitive-card">
-          <div class="platform-icon">
-            <i class="bi bi-trophy"></i>
+        <!-- CodeChef -->
+        <div class="cp-card scroll-reveal" style="--card-accent: #88c057; --card-accent-rgb: 136,192,87; --delay: 0.1s">
+          <div class="cp-card-bg" style="background-image: url('./images/codechef_profile.png')"></div>
+          <div class="cp-card-overlay"></div>
+          <div class="cp-card-shine"></div>
+          <div class="cp-card-inner">
+            <div class="cp-default">
+              <div class="cp-logo-wrap">
+                <svg viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg" class="cp-logo-svg" width="48" height="48">
+                  <path d="M40 8C28 8 18 18 18 30C18 40 23 48 30 53L28 68C26 80 33 88 40 88C47 88 54 80 52 68L50 53C57 48 62 40 62 30C62 18 52 8 40 8Z" fill="#5B4638"/>
+                  <ellipse cx="33" cy="33" rx="4" ry="5" fill="white"/>
+                  <ellipse cx="47" cy="33" rx="4" ry="5" fill="white"/>
+                  <ellipse cx="33" cy="32" rx="2" ry="3" fill="#1a0a00"/>
+                  <ellipse cx="47" cy="32" rx="2" ry="3" fill="#1a0a00"/>
+                  <path d="M34 45 Q40 51 46 45" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="cp-name">CodeChef</h3>
+              <div class="cp-stats">
+                <span class="cp-stat-badge"><i class="bi bi-check2-circle"></i> 500+ Solved</span>
+                <span class="cp-stat-badge cp-badge-alt"><i class="bi bi-star-fill"></i> 4 Star Rated</span>
+              </div>
+              <a href="https://www.codechef.com/users/kit23bam060" target="_blank" class="cp-btn">
+                <span>View Profile</span><i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+            <div class="cp-hover-content">
+              <div class="cp-hover-badge"><i class="bi bi-eye"></i> Live Preview</div>
+              <h3>CodeChef</h3>
+              <p>@kit23bam060</p>
+              <a href="https://www.codechef.com/users/kit23bam060" target="_blank" class="cp-btn cp-btn-hover">
+                <span>Open Profile</span><i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
           </div>
-          <h3>CodeChef</h3>
-          <p class="problems-count">500+ Problems</p>
-          <a href="https://www.codechef.com/users/kit23bam060" target="_blank" class="platform-link">
-            View Profile <i class="bi bi-arrow-right"></i>
-          </a>
+          <div class="cp-corner-glow"></div>
         </div>
 
-        <div class="competitive-card">
-          <div class="platform-icon">
-            <i class="bi bi-star"></i>
+        <!-- Codeforces -->
+        <div class="cp-card scroll-reveal" style="--card-accent: #1f8dd6; --card-accent-rgb: 31,141,214; --delay: 0.2s">
+          <div class="cp-card-bg" style="background-image: url('./images/codeforces_profile.png')"></div>
+          <div class="cp-card-overlay"></div>
+          <div class="cp-card-shine"></div>
+          <div class="cp-card-inner">
+            <div class="cp-default">
+              <div class="cp-logo-wrap">
+                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="cp-logo-svg" width="48" height="48">
+                  <rect x="5" y="35" width="18" height="40" rx="3" fill="#1F8DD6"/>
+                  <rect x="31" y="20" width="18" height="55" rx="3" fill="#E74C3C"/>
+                  <rect x="57" y="5" width="18" height="70" rx="3" fill="#1F8DD6"/>
+                </svg>
+              </div>
+              <h3 class="cp-name">Codeforces</h3>
+              <div class="cp-stats">
+                <span class="cp-stat-badge"><i class="bi bi-check2-circle"></i> 10+ Solved</span>
+                <span class="cp-stat-badge cp-badge-alt"><i class="bi bi-trophy"></i> Pupil Rank</span>
+              </div>
+              <a href="https://codeforces.com/profile/kit27.am60" target="_blank" class="cp-btn">
+                <span>View Profile</span><i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+            <div class="cp-hover-content">
+              <div class="cp-hover-badge"><i class="bi bi-eye"></i> Live Preview</div>
+              <h3>Codeforces</h3>
+              <p>@kit27.am60</p>
+              <a href="https://codeforces.com/profile/kit27.am60" target="_blank" class="cp-btn cp-btn-hover">
+                <span>Open Profile</span><i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
           </div>
-          <h3>Codeforces</h3>
-          <p class="problems-count">10+ Problems</p>
-          <a href="https://codeforces.com/profile/kit27.am60" target="_blank" class="platform-link">
-            View Profile <i class="bi bi-arrow-right"></i>
-          </a>
+          <div class="cp-corner-glow"></div>
         </div>
 
-        <div class="competitive-card">
-          <div class="platform-icon">
-            <i class="bi bi-lightning"></i>
+        <!-- Codolio -->
+        <div class="cp-card scroll-reveal" style="--card-accent: #7c3aed; --card-accent-rgb: 124,58,237; --delay: 0.3s">
+          <div class="cp-card-bg" style="background-image: url('./images/codolio_profile.png')"></div>
+          <div class="cp-card-overlay"></div>
+          <div class="cp-card-shine"></div>
+          <div class="cp-card-inner">
+            <div class="cp-default">
+              <div class="cp-logo-wrap">
+                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="cp-logo-svg" width="48" height="48">
+                  <circle cx="40" cy="40" r="34" fill="#7C3AED" opacity="0.2" stroke="#7C3AED" stroke-width="2"/>
+                  <path d="M26 40 C26 32 33 26 40 26 C47 26 54 32 54 40" stroke="#00D4FF" stroke-width="3" fill="none" stroke-linecap="round"/>
+                  <path d="M54 40 C54 48 47 54 40 54 C33 54 26 48 26 40" stroke="#7C3AED" stroke-width="3" fill="none" stroke-linecap="round"/>
+                  <circle cx="40" cy="40" r="6" fill="#00D4FF"/>
+                  <circle cx="40" cy="40" r="3" fill="white"/>
+                </svg>
+              </div>
+              <h3 class="cp-name">Codolio</h3>
+              <div class="cp-stats">
+                <span class="cp-stat-badge"><i class="bi bi-check2-circle"></i> 1000+ Solved</span>
+                <span class="cp-stat-badge cp-badge-alt"><i class="bi bi-lightning-fill"></i> Top 2%</span>
+              </div>
+              <a href="https://codolio.com/profile/kit_am60" target="_blank" class="cp-btn">
+                <span>View Profile</span><i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+            <div class="cp-hover-content">
+              <div class="cp-hover-badge"><i class="bi bi-eye"></i> Live Preview</div>
+              <h3>Codolio</h3>
+              <p>@kit_am60</p>
+              <a href="https://codolio.com/profile/kit_am60" target="_blank" class="cp-btn cp-btn-hover">
+                <span>Open Profile</span><i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
           </div>
-          <h3>Codolio</h3>
-          <p class="problems-count">1000+ Problems</p>
-          <a href="https://codolio.com/profile/kit_am60" target="_blank" class="platform-link">
-            View Profile <i class="bi bi-arrow-right"></i>
-          </a>
+          <div class="cp-corner-glow"></div>
         </div>
 
       </div>
     </div>
   </section>
-  <!-- Contact Section -->
+
+
+  <!-- ==================== CONTACT ==================== -->
   <section id="contact" class="contact">
     <div class="container">
-      <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
-      <div class="contact-content">
-        <form class="contact-form">
+      <h2 class="section-title scroll-reveal">Get In <span class="highlight">Touch</span></h2>
+      <div class="contact-content scroll-reveal">
+        <form class="contact-form" id="contactForm">
           <div class="form-group">
-            <input type="text" placeholder="Your Name" required>
+            <input type="text" id="contact-name" placeholder="Your Name" required>
           </div>
           <div class="form-group">
-            <input type="email" placeholder="Your Email" required>
+            <input type="email" id="contact-email" placeholder="Your Email" required>
           </div>
           <div class="form-group">
-            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <textarea id="contact-message" placeholder="Your Message" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn-submit">Send Message</button>
+          <button type="submit" class="btn-primary btn-submit" id="btn-send-message">
+            <i class="bi bi-send"></i>
+            Send Message
+          </button>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ==================== FOOTER ==================== -->
   <footer>
-    <p>&copy; 2025 Vishal Raj. All Rights Reserved.</p>
+    <div class="footer-inner">
+      <div class="footer-logo">VR</div>
+      <p>© 2025 Vishal Raj. Crafted with passion &amp; code.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/vishalraj46/" target="_blank" aria-label="LinkedIn"><i
+            class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/vishalraj60" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="mailto:kit27.am60@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+      </div>
+    </div>
   </footer>
 
-  <script src="./text-pressure.js"></script>
   <script src="./main.js"></script>
 
 </body>
