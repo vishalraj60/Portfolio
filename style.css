@@ -121,11 +121,11 @@ header.scrolled {
 .header-inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 18px 40px;
+  padding: 12px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
 }
 
 /* Logo */
@@ -135,14 +135,14 @@ header.scrolled {
 
 .logo-text {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 800;
   background: linear-gradient(135deg, var(--cyan), #7c3aed);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: 3px;
-  padding: 8px 16px;
+  padding: 6px 12px;
   border: 1.5px solid var(--border-subtle);
   border-radius: 10px;
   display: inline-block;
@@ -192,9 +192,9 @@ nav {
   z-index: 1;
   color: var(--text-2);
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  padding: 8px 20px;
+  padding: 6px 14px;
   border-radius: var(--radius-pill);
   transition: color var(--transition);
   white-space: nowrap;
@@ -216,13 +216,13 @@ nav {
 .btn-nav-cv {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 22px;
+  gap: 7px;
+  padding: 7px 16px;
   border: 1.5px solid var(--cyan);
   border-radius: var(--radius-pill);
   color: var(--cyan);
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 600;
   transition: all var(--transition);
   box-shadow: 0 0 12px rgba(0, 212, 255, 0.15);
@@ -537,75 +537,7 @@ nav {
   gap: 14px;
 }
 
-/* ── Hero Image ── */
-.hero-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  min-height: 460px;
-}
 
-/* Floating Tech Icons */
-.floating-icon {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  padding: 14px 12px 10px;
-  background: rgba(8, 18, 38, 0.8);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  cursor: default;
-  z-index: 10;
-  transition: all var(--transition);
-}
-
-.floating-icon span {
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: var(--text-2);
-  letter-spacing: 0.5px;
-}
-
-.floating-icon:hover {
-  border-color: var(--cyan);
-  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.25);
-  transform: translateY(-4px) scale(1.05);
-}
-
-.icon-react {
-  top: 5%;
-  right: -10px;
-  animation: floatIcon 4s ease-in-out infinite;
-}
-
-.icon-js {
-  top: 28%;
-  right: -30px;
-  animation: floatIcon 4s ease-in-out infinite 0.8s;
-}
-
-.icon-css {
-  bottom: 28%;
-  right: -20px;
-  animation: floatIcon 4s ease-in-out infinite 1.6s;
-}
-
-.icon-html {
-  bottom: 5%;
-  right: -10px;
-  animation: floatIcon 4s ease-in-out infinite 2.4s;
-}
-
-@keyframes floatIcon {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-10px); }
-}
 
 /* Hexagon Container */
 .hexagon-container {
@@ -1234,97 +1166,6 @@ section { padding: 110px 0; }
   background: var(--bg-primary);
 }
 
-.competitive-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.competitive-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  padding: 40px 24px;
-  border-radius: var(--radius-card);
-  text-align: center;
-  border: 1px solid var(--border-subtle);
-  transition: all var(--transition);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.competitive-card.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.competitive-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--cyan);
-  box-shadow: 0 16px 48px rgba(0, 212, 255, 0.2);
-}
-
-.platform-icon {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 20px;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid var(--border-subtle);
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: var(--cyan);
-  transition: all var(--transition);
-}
-
-.competitive-card:hover .platform-icon {
-  background: rgba(0, 212, 255, 0.15);
-  border-color: rgba(0, 212, 255, 0.4);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.25);
-}
-
-.competitive-card h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--text-1);
-  margin-bottom: 8px;
-}
-
-.problems-count {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--cyan), var(--blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 20px;
-}
-
-.platform-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-2);
-  text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all var(--transition);
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--border-subtle);
-}
-
-.platform-link:hover {
-  color: var(--cyan);
-  border-color: rgba(0, 212, 255, 0.4);
-  background: rgba(0, 212, 255, 0.06);
-  gap: 12px;
-}
 
 /* ============================================================
    CONTACT SECTION
@@ -1449,9 +1290,6 @@ footer p {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .competitive-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
   .skills-container {
     grid-template-columns: repeat(2, 1fr);
@@ -1472,7 +1310,6 @@ footer p {
   .orbit-ring-1 { width: 400px; height: 160px; }
   .orbit-ring-2 { width: 360px; height: 150px; }
 
-  .floating-icon { display: none; }
 }
 
 @media (max-width: 900px) {
@@ -1559,8 +1396,7 @@ footer p {
 
 @media (max-width: 600px) {
   .info-cards-row,
-  .stats-grid,
-  .competitive-grid {
+  .stats-grid {
     grid-template-columns: 1fr;
   }
 
