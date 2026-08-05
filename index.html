@@ -12,12 +12,74 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
+  <!-- Preloader: no-flash background set instantly -->
+  <style>html,body{background:#050816;}</style>
+  <link rel="stylesheet" href="preloader.css">
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
+
+  <!-- ==================== PRELOADER ==================== -->
+  <div id="vr-preloader" role="status" aria-label="Loading portfolio">
+
+    <!-- Background layers -->
+    <div class="pl-grid"></div>
+    <canvas id="pl-particles"></canvas>
+    <div class="pl-ambient-tl"></div>
+    <div class="pl-ambient-br"></div>
+
+    <!-- Main content -->
+    <div class="pl-content">
+
+      <!-- Logo Stage -->
+      <div class="pl-logo-stage">
+        <!-- Glow orb behind card -->
+        <div class="pl-glow-orb"></div>
+        <!-- Spinning rings -->
+        <div class="pl-ring-outer"></div>
+        <div class="pl-ring-mid"></div>
+        <!-- Glass card -->
+        <div class="pl-glass-card">
+          <!-- VR Text Logo — premium styled lettering -->
+          <div class="pl-vr-text" aria-label="VR Logo">VR</div>
+          <!-- card shimmer overlay -->
+          <div class="pl-card-shimmer"></div>
+        </div><!-- /.pl-glass-card -->
+      </div><!-- /.pl-logo-stage -->
+
+
+
+      <!-- Text -->
+      <div class="pl-text-block">
+        <h1 class="pl-title">Welcome to My Portfolio</h1>
+        <p class="pl-subtitle">Discover my journey, skills, and innovative projects.</p>
+      </div>
+
+      <!-- Progress -->
+      <div class="pl-progress-section">
+        <div class="pl-progress-header">
+          <span class="pl-progress-label">Loading</span>
+          <span class="pl-progress-pct" id="pl-pct">0%</span>
+        </div>
+        <div class="pl-bar-track">
+          <div class="pl-bar-fill" id="pl-bar-fill">
+            <div class="pl-bar-lead" id="pl-bar-lead"></div>
+          </div>
+        </div>
+        <div class="pl-dots-row">
+          <span class="pl-status-dot"></span>
+          <span class="pl-status-dot"></span>
+          <span class="pl-status-dot"></span>
+          <span class="pl-status-dot"></span>
+          <span class="pl-status-dot"></span>
+        </div>
+      </div>
+
+    </div><!-- /.pl-content -->
+  </div><!-- /#vr-preloader -->
 
   <!-- Particle Canvas -->
   <canvas id="particles-canvas"></canvas>
@@ -620,6 +682,8 @@
     </div>
   </footer>
 
+  <!-- Preloader script (runs before main.js) -->
+  <script src="./preloader.js"></script>
   <script src="./main.js"></script>
 
 </body>
